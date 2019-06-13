@@ -1,5 +1,8 @@
 # snakemaketax example
 
+Here we simulate in a very simplified way processing of the tax declations. The snakemake workflow is run for every `*_a.txt` file in the `data` directory. To this file is added by concatenation another one with `*_a.txt` and placed in the folder `data_processed`. The report is packed in the envelope of the tax office `*_e.txt` file. Then, when all the final reports are produced in the `reports` folder, a marker file is produced for the completion of the work. 
+
+
 Install the minimal snakemake in your environment with conda
 
 ```
