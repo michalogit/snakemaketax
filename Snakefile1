@@ -1,0 +1,62 @@
+import glob
+import os
+
+# Globals ---------------------------------------------------------------------
+
+shellcommand="mkdir data"
+os.system(shellcommand)
+shellcommand="mkdir data_processed"
+os.system(shellcommand)
+shellcommand="mkdir reports"
+os.system(shellcommand)
+
+
+
+
+SAMPLES, = glob_wildcards("data/{sample}_a.txt")
+print("=====")
+print(SAMPLES)
+print("=====")
+
+
+localrules: all, summary_all
+
+
+rule all:
+    input:
+        "reports/final_marker.txt",
+        "reports/counts.csv"
+
+
+rule combine_ab:
+    input:
+        a="data/{sample}_a.txt",
+        b="data/{sample}_b.txt" 
+    output:
+        "data_processed/{sample}.txt" 
+    shell:
+        "cat {input.a} {input.b} > {output}"
+
+
+rule add_envelope:
+    input:
+        combined="data_processed/{sample}.txt",
+        envelope="data/{sample}_envelope.txt" 
+    output:
+        "reports/{sample}.txt" 
+    shell:
+        "cat {input.envelope} {input.combined} {input.envelope} > {output}"
+
+
+rule summary_all:
+    input:
+        expand("reports/{sample}.txt", sample=SAMPLES)
+    output:
+        "reports/final_marker.txt"
+    shell:
+        "echo {input} \n"
+        "touch reports/final_marker.txt"
+
+
+
+
