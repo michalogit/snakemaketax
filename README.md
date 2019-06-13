@@ -12,7 +12,7 @@ conda install -c bioconda -c conda-forge snakemake-minimal
 Clone the exercise repo
 
 ```
-https://github.com/michalogit/snakemaketax.git
+git clone https://github.com/michalogit/snakemaketax.git
 ```
 
 Use the simple processing
