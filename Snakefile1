@@ -24,8 +24,7 @@ localrules: all, summary_all
 
 rule all:
     input:
-        "reports/final_marker.txt",
-        "reports/counts.csv"
+        "reports/final_marker.txt"
 
 
 rule combine_ab:
