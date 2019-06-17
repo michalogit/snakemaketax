@@ -16,7 +16,7 @@ git clone https://github.com/michalogit/snakemaketax.git
 cd snakemaketax
 ```
 
-Use the simple processing
+Use the simple Snakefile for the first workflow run
 
 ```
 cp Snakefile1 Snakefile
