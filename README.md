@@ -40,6 +40,8 @@ you can produce the graph too
 
 ```
 snakemake --dag > graph1.dag
+dot -Tpdf graph1.dag > graph1.pdf
+
 ```
 
 
