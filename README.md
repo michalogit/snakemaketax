@@ -13,6 +13,7 @@ Clone the exercise repo
 
 ```
 git clone https://github.com/michalogit/snakemaketax.git
+cd snakemaketax
 ```
 
 Use the simple processing
